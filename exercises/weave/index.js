@@ -28,7 +28,7 @@ function weave(sourceOne, sourceTwo) {
   const q = new Queue();
   // removes the first from sourceOne, then add it to q
   // removes the first from sourceTwo, then add it to q
-  while (sourceOne.peek() !== undefined || sourceTwo.peek() !== undefined) {
+  while (sourceOne.peek() || sourceTwo.peek()) {
     if (sourceOne.peek()) {
       q.add(sourceOne.remove());
     }
