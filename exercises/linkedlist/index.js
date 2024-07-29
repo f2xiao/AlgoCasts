@@ -13,14 +13,15 @@ class LinkedList {
   constructor() {
     this.head = null;
     this.length = 0;
+    this.tail = null;
   }
 
   insertFirst(data) {
     if (!this.head) {
       this.head = new Node(data);
+      this.tail = this.head;
     } else {
-      const n2 = new Node(data, this.head);
-      this.head = n2;
+      this.head = new Node(data, this.head);
     }
 
     this.length++;
@@ -32,6 +33,25 @@ class LinkedList {
 
   getFirst() {
     return this.head;
+  }
+
+  getLast() {
+    return this.tail;
+  }
+
+  clear(){
+    this.head = null;
+    this.length = 0;
+    this.tail = null;
+  }
+
+  removeFirst(){
+    if(this.length === 1){
+      this.clear();
+    }else{
+      this.head = this.head.next;
+      this.length --;
+    }
   }
 }
 
