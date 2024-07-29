@@ -53,6 +53,23 @@ class LinkedList {
       this.length --;
     }
   }
+
+  removeLast() {
+    if(this.length === 0 || this.length === 1){
+      this.tail = null;
+      this.head = null;
+      this.length = 0;
+    }else{
+      // find the node right before the tail
+      let node = this.head;
+      while(node.next.next){
+        node = node.next;
+      }
+      // swap the tail with the node right before the tail 
+      this.tail = node;
+      this.length --;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
