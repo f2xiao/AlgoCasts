@@ -70,6 +70,37 @@ class LinkedList {
       this.length --;
     }
   }
+
+  insertLast(data){
+    if(this.length === 0){
+      this.insertFirst(data);
+    }else{
+      this.tail = new Node(data, null);
+      this.length ++;
+    }
+  }
+
+  getAt(index){
+    if(index >= this.length){
+      return null;
+    }
+
+    if(index === 0){
+      this.getFirst()
+    }
+
+    if(index === this.length - 1){
+      this.getLast()
+    }
+    
+    let count = 0;
+    let node = this.head;
+    while(count < index){
+      node = node.next;
+      count++;
+    }
+    return node;
+  }
 }
 
 module.exports = { Node, LinkedList };
