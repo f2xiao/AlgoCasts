@@ -39,66 +39,70 @@ class LinkedList {
     return this.tail;
   }
 
-  clear(){
+  clear() {
     this.head = null;
     this.length = 0;
     this.tail = null;
   }
 
-  removeFirst(){
-    if(this.length === 1){
+  removeFirst() {
+    if (this.length === 1) {
       this.clear();
-    }else{
+    } else {
       this.head = this.head.next;
-      this.length --;
+      this.length--;
     }
   }
 
   removeLast() {
-    if(this.length === 0 || this.length === 1){
+    if (this.length === 0 || this.length === 1) {
       this.tail = null;
       this.head = null;
       this.length = 0;
-    }else{
+    } else {
       // find the node right before the tail
       let node = this.head;
-      while(node.next.next){
+      while (node.next.next) {
         node = node.next;
       }
-      // swap the tail with the node right before the tail 
+      // swap the tail with the node right before the tail
       this.tail = node;
-      this.length --;
+      this.length--;
     }
   }
 
-  insertLast(data){
-    if(this.length === 0){
+  insertLast(data) {
+    if (this.length === 0) {
       this.insertFirst(data);
-    }else{
-      this.tail = new Node(data, null);
-      this.length ++;
+    } else {
+      const newTail = new Node(data, null);
+      this.tail.next = newTail;
+      this.tail = newTail;
+      this.length++;
     }
   }
 
-  getAt(index){
-    if(index >= this.length){
+  getAt(index) {
+    if (index >= this.length) {
       return null;
     }
 
-    if(index === 0){
-      this.getFirst()
+    if (index === 0) {
+      this.getFirst();
     }
 
-    if(index === this.length - 1){
-      this.getLast()
+    if (index === this.length - 1) {
+      this.getLast();
     }
-    
+
     let count = 0;
     let node = this.head;
-    while(count < index){
+    // console.log(index, node);
+    while (count < index) {
       node = node.next;
       count++;
     }
+    // console.log(count);
     return node;
   }
 }
