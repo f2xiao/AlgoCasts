@@ -105,6 +105,26 @@ class LinkedList {
     // console.log(count);
     return node;
   }
+
+  removeAt(index){
+    if(!this.head){
+      return;
+    }
+
+    if(index===0){
+      this.removeFirst();
+    }
+
+    if(index===this.length - 1){
+      this.removeLast();
+    }
+
+    const prev = this.getAt(index - 1);
+    const next = this.getAt(index + 1);
+    prev.next = next;
+    this.length --;
+
+  }
 }
 
 module.exports = { Node, LinkedList };
