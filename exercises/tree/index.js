@@ -31,10 +31,11 @@ class Tree {
     }
 
     traverseBF(fn){
-        let node = this.root;
-        while(node){
-            node.children.forEach(fn);
-            node = node.children;
+        let arr = [this.root]
+        while(arr.length){
+            const node = arr.shift();
+            arr.push(...node.children)
+            fn(node)
         }
     }
 
