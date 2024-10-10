@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest fromlast/test.js --watch"
+    "test": "jest levelWidth/test.js --watch"
   },
   "jest": {
     "testEnvironment": "node"
